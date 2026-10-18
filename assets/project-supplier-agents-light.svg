@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="116" viewBox="0 0 860 116" role="img" aria-label="Supplier certification agents: Four Dust agents that check supplier certificates against the official GOTS registry, enrich them from the web and report in Dust Frames. Built for LVMH.">
+<title>Supplier certification agents: Four Dust agents that check supplier certificates against the official GOTS registry, enrich them from the web and report in Dust Frames. Built for LVMH.</title>
+<style>.serif { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; }.sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }.mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }</style>
+<text x="4" y="48" class="serif" font-size="28" fill="#C93A1B">03</text>
+<text x="64" y="46" class="serif" font-size="22" fill="#1C1917">Supplier certification agents</text>
+<path d="M844 40 L854 30 M847 30 H854 V37" fill="none" stroke="#78716C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 0.5 H860" stroke="#E7E2DA"/>
+<text x="64" y="76" class="sans" font-size="14" fill="#44403C">Four Dust agents that check supplier certificates against the official GOTS</text>
+<text x="64" y="97" class="sans" font-size="14" fill="#44403C">registry, enrich them from the web and report in Dust Frames. Built for LVMH.</text>
+<rect x="754" y="22" width="74" height="28" rx="14" fill="none" stroke="#E7E2DA"/><text x="791" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#44403C">FastMCP</text>
+<rect x="664" y="22" width="82" height="28" rx="14" fill="none" stroke="#E7E2DA"/><text x="705" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#44403C">Selenium</text>
+<rect x="603" y="22" width="53" height="28" rx="14" fill="none" stroke="#E7E2DA"/><text x="629.5" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#44403C">Dust</text>
+</svg>

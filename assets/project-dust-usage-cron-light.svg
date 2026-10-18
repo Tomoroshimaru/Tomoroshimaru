@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="116" viewBox="0 0 860 116" role="img" aria-label="dust-usage-cron: Weekly job that pulls Dust usage analytics and pushes them back into a Dust folder, running serverless on Azure Container Apps Jobs.">
+<title>dust-usage-cron: Weekly job that pulls Dust usage analytics and pushes them back into a Dust folder, running serverless on Azure Container Apps Jobs.</title>
+<style>.serif { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; }.sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }.mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }</style>
+<text x="4" y="48" class="serif" font-size="28" fill="#C93A1B">06</text>
+<text x="64" y="46" class="serif" font-size="22" fill="#1C1917">dust-usage-cron</text>
+<path d="M844 40 L854 30 M847 30 H854 V37" fill="none" stroke="#78716C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 0.5 H860" stroke="#E7E2DA"/>
+<path d="M0 115.5 H860" stroke="#E7E2DA"/>
+<text x="64" y="76" class="sans" font-size="14" fill="#44403C">Weekly job that pulls Dust usage analytics and pushes them back into a Dust</text>
+<text x="64" y="97" class="sans" font-size="14" fill="#44403C">folder, running serverless on Azure Container Apps Jobs.</text>
+<rect x="768" y="22" width="60" height="28" rx="14" fill="none" stroke="#E7E2DA"/><text x="798" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#44403C">Azure</text>
+<rect x="664" y="22" width="96" height="28" rx="14" fill="none" stroke="#E7E2DA"/><text x="712" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#44403C">TypeScript</text>
+<rect x="603" y="22" width="53" height="28" rx="14" fill="none" stroke="#E7E2DA"/><text x="629.5" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#44403C">Deno</text>
+</svg>

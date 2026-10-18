@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="Thomas Alaphilippe, Solutions Engineer at Dust">
+<title>Thomas Alaphilippe, Solutions Engineer at Dust</title>
+<style>.serif { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; }.sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }.mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }.step { animation: reveal 9s ease-out infinite both; }@keyframes reveal { 0% { opacity: 0; transform: translateY(4px); } 5% { opacity: 1; transform: none; } 85% { opacity: 1; } 95%, 100% { opacity: 0; } }.live { animation: blink 1.6s ease-in-out infinite; }@keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }@media (prefers-reduced-motion: reduce) { .step, .live { animation: none; } }</style>
+<rect x="0.5" y="0.5" width="1199" height="319" rx="15.5" fill="#FAF8F5" stroke="#E7E2DA"/>
+<g transform="rotate(-6 100 104)">
+<rect x="72" y="76" width="56" height="56" rx="10" fill="#C93A1B"/>
+<rect x="77" y="81" width="46" height="46" rx="7" fill="none" stroke="#FAF8F5" stroke-opacity="0.55"/>
+<text x="100" y="113" class="serif" font-size="23" font-weight="700" text-anchor="middle" fill="#FAF8F5">TA</text>
+</g>
+<text x="70" y="198" class="serif" font-size="54" fill="#1C1917">Thomas Alaphilippe</text>
+<text x="72" y="238" class="sans" font-size="21" fill="#44403C">Solutions Engineer at <tspan fill="#C93A1B">Dust</tspan><tspan fill="#78716C">  ·  Paris</tspan></text>
+<rect x="640" y="44" width="500" height="232" rx="12" fill="#FFFFFF" stroke="#E7E2DA"/>
+<text x="664" y="72" class="mono" font-size="13" letter-spacing="1" fill="#78716C">agent run</text>
+<circle cx="1072" cy="68" r="3.5" fill="#C93A1B" class="live"/>
+<text x="1116" y="72" class="mono" font-size="13" text-anchor="end" fill="#78716C">live</text>
+<path d="M640 88 H1140" stroke="#E7E2DA"/>
+<g class="mono" font-size="16">
+<g class="step" style="animation-delay: 0s"><text x="664" y="124"><tspan fill="#C93A1B">›</tspan> <tspan fill="#1C1917">triage this week's escalations</tspan></text></g>
+<g class="step" style="animation-delay: 0.9s"><text x="664" y="156"><tspan fill="#78716C">  ↳ zendesk.search_tickets</tspan></text><text x="1116" y="156" text-anchor="end" fill="#C93A1B">✓</text></g>
+<g class="step" style="animation-delay: 1.8s"><text x="664" y="188"><tspan fill="#78716C">  ↳ dust.search_nodes</tspan></text><text x="1116" y="188" text-anchor="end" fill="#C93A1B">✓</text></g>
+<g class="step" style="animation-delay: 2.7s"><text x="664" y="220"><tspan fill="#78716C">  ↳ notion.query_database</tspan></text><text x="1116" y="220" text-anchor="end" fill="#C93A1B">✓</text></g>
+<g class="step" style="animation-delay: 3.6s"><text x="664" y="252"><tspan fill="#C93A1B">●</tspan> <tspan fill="#44403C">4 replies drafted, 2 flagged</tspan></text></g>
+</g>
+</svg>

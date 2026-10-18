@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="116" viewBox="0 0 860 116" role="img" aria-label="dust-mcp: MCP server that exposes the full Dust API to agents: 33 tools across agents, conversations, data sources, documents, tables and Dust apps.">
+<title>dust-mcp: MCP server that exposes the full Dust API to agents: 33 tools across agents, conversations, data sources, documents, tables and Dust apps.</title>
+<style>.serif { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; }.sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }.mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }</style>
+<text x="4" y="48" class="serif" font-size="28" fill="#C93A1B">01</text>
+<text x="64" y="46" class="serif" font-size="22" fill="#1C1917">dust-mcp</text>
+<path d="M844 40 L854 30 M847 30 H854 V37" fill="none" stroke="#78716C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="64" y="76" class="sans" font-size="14" fill="#44403C">MCP server that exposes the full Dust API to agents: 33 tools across agents,</text>
+<text x="64" y="97" class="sans" font-size="14" fill="#44403C">conversations, data sources, documents, tables and Dust apps.</text>
+<rect x="768" y="22" width="60" height="28" rx="14" fill="none" stroke="#E7E2DA"/><text x="798" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#44403C">httpx</text>
+<rect x="686" y="22" width="74" height="28" rx="14" fill="none" stroke="#E7E2DA"/><text x="723" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#44403C">FastMCP</text>
+<rect x="611" y="22" width="67" height="28" rx="14" fill="none" stroke="#E7E2DA"/><text x="644.5" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#44403C">Python</text>
+</svg>

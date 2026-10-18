@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="116" viewBox="0 0 860 116" role="img" aria-label="Cross-lingual RAG: Streamlit app that answers questions over PDFs in French and English, with query rewriting, translation, FAISS search and reranking.">
+<title>Cross-lingual RAG: Streamlit app that answers questions over PDFs in French and English, with query rewriting, translation, FAISS search and reranking.</title>
+<style>.serif { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; }.sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }.mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }</style>
+<text x="4" y="48" class="serif" font-size="28" fill="#FF6B4A">05</text>
+<text x="64" y="46" class="serif" font-size="22" fill="#F5F2EE">Cross-lingual RAG</text>
+<path d="M844 40 L854 30 M847 30 H854 V37" fill="none" stroke="#A8A29E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 0.5 H860" stroke="#3A3633"/>
+<text x="64" y="76" class="sans" font-size="14" fill="#D6D3D1">Streamlit app that answers questions over PDFs in French and English, with</text>
+<text x="64" y="97" class="sans" font-size="14" fill="#D6D3D1">query rewriting, translation, FAISS search and reranking.</text>
+<rect x="725" y="22" width="103" height="28" rx="14" fill="none" stroke="#3A3633"/><text x="776.5" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#D6D3D1">GPT-4o-mini</text>
+<rect x="657" y="22" width="60" height="28" rx="14" fill="none" stroke="#3A3633"/><text x="687" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#D6D3D1">FAISS</text>
+<rect x="560" y="22" width="89" height="28" rx="14" fill="none" stroke="#3A3633"/><text x="604.5" y="40.5" class="mono" font-size="12" text-anchor="middle" fill="#D6D3D1">Streamlit</text>
+</svg>
