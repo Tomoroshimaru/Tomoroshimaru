@@ -4,12 +4,17 @@
 Edit the content below, then run from anywhere:
 
     python3 scripts/build_assets.py
+
+Brand icons come from Simple Icons (CC0) and live in scripts/icons/, next to a
+few hand-drawn glyphs for tools that have no logo.
 """
 
+import re
 from pathlib import Path
 from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parent.parent
+ICONS_DIR = ROOT / "scripts" / "icons"
 OUT_DIR = ROOT / "assets"
 
 SERIF = "'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif"
@@ -25,6 +30,8 @@ THEMES = {
         "text": "#44403C",
         "muted": "#78716C",
         "accent": "#C93A1B",
+        "is_dark": False,
+        "tint": 0.10,
     },
     "dark": {
         "page": "#121110",
@@ -34,6 +41,8 @@ THEMES = {
         "text": "#D6D3D1",
         "muted": "#A8A29E",
         "accent": "#FF6B4A",
+        "is_dark": True,
+        "tint": 0.16,
     },
 }
 
@@ -107,14 +116,38 @@ PROJECTS = [
     },
 ]
 
+# (heading, caption lines, tools). A tool is (icon file, label, brand colour).
+# Hand-drawn glyphs have no brand colour and use the accent instead.
 TOOLBOX = [
-    ("Agents & LLMs", ["Dust", "LangGraph", "LangChain", "OpenAI API", "RAG", "FAISS",
-                       "multilingual embeddings", "human-in-the-loop"]),
-    ("Integrations", ["MCP (FastMCP)", "Dust API", "Zendesk API", "Notion API",
-                      "Google Drive API", "Google Sheets", "Serper"]),
-    ("Engineering", ["Python", "TypeScript", "Deno", "httpx", "Pydantic", "DuckDB",
-                     "Streamlit", "Selenium"]),
-    ("Cloud & ops", ["Docker", "Azure Container Apps", "scheduled jobs"]),
+    ("Agents & LLMs", ["what the agents", "run on"], [
+        ("sparkle", "Dust", None),
+        ("langgraph", "LangGraph", "7FC8FF"),
+        ("langchain", "LangChain", "7FC8FF"),
+        ("chat", "OpenAI API", None),
+        ("file-search", "RAG", None),
+        ("scatter", "FAISS", None),
+        ("vectors", "Embeddings", None),
+    ]),
+    ("Integrations", ["where the agents", "take action"], [
+        ("modelcontextprotocol", "MCP", "000000"),
+        ("braces", "Dust API", None),
+        ("zendesk", "Zendesk", "03363D"),
+        ("notion", "Notion", "000000"),
+        ("googledrive", "Drive", "4285F4"),
+        ("googlesheets", "Sheets", "34A853"),
+        ("search", "Serper", None),
+        ("selenium", "Selenium", "43B02A"),
+    ]),
+    ("Build & ship", ["how it gets", "to production"], [
+        ("python", "Python", "3776AB"),
+        ("typescript", "TypeScript", "3178C6"),
+        ("deno", "Deno", "000000"),
+        ("pydantic", "Pydantic", "E92063"),
+        ("duckdb", "DuckDB", "FFF000"),
+        ("streamlit", "Streamlit", "FF4B4B"),
+        ("docker", "Docker", "2496ED"),
+        ("cloud", "Azure", None),
+    ]),
 ]
 
 # ---------------------------------------------------------------- helpers
@@ -143,6 +176,38 @@ def svg(width, height, title, body):
 def pill_width(label, char_width=7.2, padding=24):
     # Monospace glyphs are ~0.6em wide, so the width is predictable.
     return round(len(label) * char_width + padding)
+
+
+def icon(name, x, y, size, color):
+    source = (ICONS_DIR / f"{name}.svg").read_text()
+    inner = re.search(r"<svg[^>]*>(.*)</svg>", source, re.S).group(1)
+    inner = re.sub(r"<title>.*?</title>", "", inner)
+    return (
+        f'<g transform="translate({x:g} {y:g}) scale({size / 24:g})" '
+        f'fill="{color}" color="{color}">{inner}</g>'
+    )
+
+
+def luminance(hex_color):
+    def channel(c):
+        c = int(c, 16) / 255
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+
+    r, g, b = (channel(hex_color[i:i + 2]) for i in (0, 2, 4))
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def brand_color(hex_color, t):
+    # Keep brand colours, but rescue the ones that vanish on the page
+    # background: yellows on light, near-blacks on dark.
+    if hex_color is None:
+        return t["accent"]
+    if not t["is_dark"] and luminance(hex_color) > 0.45:
+        r, g, b = (round(int(hex_color[i:i + 2], 16) * 0.55) for i in (0, 2, 4))
+        return f"#{r:02X}{g:02X}{b:02X}"
+    if t["is_dark"] and luminance(hex_color) < 0.06:
+        return t["title"]
+    return f"#{hex_color}"
 
 
 def pill(x, y, label, t):
@@ -254,30 +319,42 @@ def project_row(project, index, t, last):
 
 
 def toolbox(t):
-    w, label_w, gap, line_h, pad = 860, 200, 8, 38, 22
+    w, label_w, row_h, box = 860, 200, 128, 52
+    slot_w = (w - label_w) / max(len(tools) for _, _, tools in TOOLBOX)
     body = [style_block()]
-    y = 0
-    for heading, items in TOOLBOX:
-        if y:  # the section heading already draws a rule above the first row
-            body.append(f'<path d="M0 {y + 0.5} H{w}" stroke="{t["border"]}"/>')
-        x, line_y = label_w, y + pad
-        pills = []
-        for item in items:
-            width = pill_width(item)
-            if x + width > w:
-                x, line_y = label_w, line_y + line_h
-            pills.append(pill(x, line_y, item, t)[1])
-            x += width + gap
+    for row, (heading, caption, tools) in enumerate(TOOLBOX):
+        top = row * row_h
+        if row:  # the section heading already draws a rule above the first row
+            body.append(f'<path d="M0 {top + 0.5} H{w}" stroke="{t["border"]}"/>')
         body.append(
-            f'<text x="4" y="{y + pad + 20}" class="serif" font-size="19" font-style="italic" '
+            f'<text x="4" y="{top + 50}" class="serif" font-size="21" font-style="italic" '
             f'fill="{t["title"]}">{escape(heading)}</text>'
         )
-        body += pills
-        y = line_y + 28 + pad
-    body.append(f'<path d="M0 {y - 0.5} H{w}" stroke="{t["border"]}"/>')
+        for i, line in enumerate(caption):
+            body.append(
+                f'<text x="4" y="{top + 74 + i * 18}" class="sans" font-size="13" '
+                f'fill="{t["muted"]}">{escape(line)}</text>'
+            )
+        for i, (icon_name, label, hex_color) in enumerate(tools):
+            color = brand_color(hex_color, t)
+            cx = label_w + slot_w * (i + 0.5)
+            box_y = top + 24
+            body.append(
+                f'<rect x="{cx - box / 2:g}" y="{box_y}" width="{box}" height="{box}" rx="14" '
+                f'fill="{color}" fill-opacity="{t["tint"]}"/>'
+            )
+            body.append(icon(icon_name, cx - 13, box_y + 13, 26, color))
+            body.append(
+                f'<text x="{cx:g}" y="{box_y + box + 22}" class="mono" font-size="11.5" '
+                f'text-anchor="middle" fill="{t["text"]}">{escape(label)}</text>'
+            )
+    h = len(TOOLBOX) * row_h
+    body.append(f'<path d="M0 {h - 0.5} H{w}" stroke="{t["border"]}"/>')
 
-    summary = "Toolbox. " + "; ".join(f"{heading}: {', '.join(items)}" for heading, items in TOOLBOX)
-    return svg(w, y, summary, "\n".join(body))
+    summary = "Toolbox. " + "; ".join(
+        f"{heading}: {', '.join(label for _, label, _ in tools)}" for heading, _, tools in TOOLBOX
+    )
+    return svg(w, h, summary, "\n".join(body))
 
 
 # ---------------------------------------------------------------- build

@@ -23,5 +23,5 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Tomoroshimaru/Tomoroshimaru/main/assets/toolbox-dark.svg">
-  <img alt="Agents and LLMs: Dust, LangGraph, LangChain, OpenAI API, RAG, FAISS, multilingual embeddings, human-in-the-loop. Integrations: MCP (FastMCP), Dust API, Zendesk API, Notion API, Google Drive API, Google Sheets, Serper. Engineering: Python, TypeScript, Deno, httpx, Pydantic, DuckDB, Streamlit, Selenium. Cloud and ops: Docker, Azure Container Apps, scheduled jobs." src="https://raw.githubusercontent.com/Tomoroshimaru/Tomoroshimaru/main/assets/toolbox-light.svg" width="100%">
+  <img alt="Agents and LLMs: Dust, LangGraph, LangChain, OpenAI API, RAG, FAISS, embeddings. Integrations: MCP, Dust API, Zendesk, Notion, Google Drive, Google Sheets, Serper, Selenium. Build and ship: Python, TypeScript, Deno, Pydantic, DuckDB, Streamlit, Docker, Azure." src="https://raw.githubusercontent.com/Tomoroshimaru/Tomoroshimaru/main/assets/toolbox-light.svg" width="100%">
 </picture>
